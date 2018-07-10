@@ -1,0 +1,4 @@
+---
+- name: copy demo app source
+  copy: src=files/ dest=/var/www/html/resume/ mode=0755
+  notify: restart apache2

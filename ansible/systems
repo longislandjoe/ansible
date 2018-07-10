@@ -1,0 +1,15 @@
+[control]
+ansible
+
+[loadbalancer]
+raspberrypi2.joeredinger.com
+
+[webserver]
+raspberrypi2
+
+[database]
+raspberrypi2
+
+
+
+

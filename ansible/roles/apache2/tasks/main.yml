@@ -1,0 +1,51 @@
+---
+- name: install web components
+  apt: name={{ item }} state=present
+  with_items:
+    - apache2
+    - python-mysqldb
+
+- name: change apache2 listen port
+  lineinfile: path=/etc/apache2/ports.conf regexp="^Listen 80" line="Listen 81" backrefs=yes
+  notify: restart apache2
+
+- name: delete default apache vhost
+  file: path=/etc/apache2/sites-enabled/000-default.conf state=absent
+
+- name: get active sites
+  shell: ls -1 /etc/apache2/sites-enabled
+  register: active
+
+#- debug: var=sites
+#  debug: var=item.name
+- name: deactivate apache2 sites
+  file: path=/etc/apache2/sites-enabled/{{ item }} state=absent
+  with_items: "{{ active.stdout_lines }}"
+  when: item not in sites|join(".conf")
+  notify: restart apache2
+
+- name: ensure content directories exist
+  file:
+    path: /var/www/html/{{ item.key }}
+    state: directory
+  with_dict: "{{ sites }}"
+
+- name: populate directories with test
+  file: path=/var/www/html/{{ item.key }}/{{item.key}}.txt state=touch
+  with_dict: "{{ sites }}"
+
+- name: copy apache virtual host config
+  template: src=apache2.conf.j2 dest=/etc/apache2/sites-available/{{ item.key }}.conf mode=0755
+  with_dict: "{{ sites }}"
+  notify: restart apache2
+
+- name: simlink vhosts available to enabled hosts
+  file:  src=/etc/apache2/sites-available/{{ item.key }}.conf dest=/etc/apache2/sites-enabled/{{ item.key }}.conf state=link
+  with_dict: "{{ sites }}"
+  notify: restart apache2
+
+#  file: src=/etc/apache2/sites-available/000-default.conf dest=/etc/apache2/sites-enabled/000-default.conf state=link
+# notify: restart apache2
+
+- name: ensure apache2 started
+  service: name=apache2 state=started enabled=yes

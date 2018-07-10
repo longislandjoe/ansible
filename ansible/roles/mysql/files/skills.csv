@@ -1,0 +1,77 @@
+"DevOps"	"Ansible"	100	10
+"DevOps"	"Git/Github"	100	10
+"DevOps"	"Jenkins"	100	10
+"DevOps"	"Chef"	75	10
+"DevOps"	"Puppet"	25	10
+"DevOps"	"Putty"	100	16
+"DevOps"	"Big Brother"	100	17
+"DevOps"	"Maven"	75	17
+"DevOps"	"Nagios"	75	17
+"Operating Systems and Tools"	"Linux: Red Hat-RHEL, Centos, Fedora"	100	20
+"Operating Systems and Tools"	"Linux: Ubuntu"	100	20
+"Operating Systems and Tools"	"Linux: Raspberry Pi Raspbian"	100	21
+"Operating Systems and Tools"	"Cygwin"	100	27
+"Operating Systems and Tools"	"LDAP/AD"	100	27
+"Operating Systems and Tools"	"Samba"	75	27
+"Virtualization"	"Amazon Web Services (AWS): EC2, S3, RDS"	100	40
+"Virtualization"	"Vagrant"	100	40
+"Virtualization"	"Virtual Box"	100	40
+"Virtualization"	"Vmware"	100	40
+"Virtualization"	"Docker"	25	40
+"Virtualization"	"Kubernetes"	25	40
+"Webserver/CMS"	"Apache"	100	50
+"Webserver/CMS"	"IIS"	100	50
+"Webserver/CMS"	"Tomcat"	100	50
+"Webserver/CMS"	"Nginx"	75	50
+"Webserver/CMS"	"Teamsite"	75	50
+"Webserver/CMS"	"Wordpress"	75	50
+"Webserver/CMS"	"Xampp"	100	57
+"Webserver/CMS"	"Yourls URL Shortener"	100	57
+"Webserver/CMS"	"Gluster"	75	57
+"Webserver/CMS"	"Haproxy"	75	57
+"Webserver/CMS"	"Varnish"	75	57
+"Webserver/CMS"	"Weblogic"	75	57
+"Webserver/CMS"	"Django"	50	57
+"Webserver/CMS"	"Drupal"	50	57
+"Webserver/CMS"	"JBoss"	50	57
+"Webserver/CMS"	"Memcache"	50	57
+"Database"	"MS SQL Server"	100	60
+"Database"	"MySQL/MariaDB"	100	60
+"Database"	"Postgres"	100	60
+"Database"	"Oracle"	75	60
+"Search"	"Solr"	100	70
+"Search"	"FAST ESP"	50	75
+"Web Development"	"CSS 3"	100	80
+"Web Development"	"HTML 5"	100	80
+"Web Development"	"PHP"	100	80
+"Web Development"	"Bootstrap"	75	80
+"Web Development"	"Java "	75	80
+"Web Development"	"Javascript"	75	80
+"Web Development"	"Jquery, Jquery UI"	75	80
+"Web Development"	"Perl"	75	80
+"Web Development"	"Python"	75	80
+"Web Development"	"Ruby"	75	80
+"Web Development"	"Scss"	75	80
+"Web Development"	"Bash"	100	82
+"Web Development"	"Atom"	100	85
+"Web Development"	"Eclipse"	100	85
+"Web Development"	"Photoshop"	100	85
+"Web Development"	"Ant"	75	85
+"Web Development"	"Node.js"	50	85
+"Web Development"	"NPM"	50	85
+"Web Development"	"Gimp"	100	87
+"Web Development"	"Perforce P4merge"	100	87
+"Web Development"	"Gulp"	50	87
+"Business"	"Agile"	100	90
+"Business"	"Cyber Security"	100	90
+"Business"	"Google Analytics"	100	90
+"Business"	"Visio"	100	90
+"Business"	"ITIL"	75	90
+"Languages"	"Italian"	100	100
+"Languages"	"Spanish"	100	100
+"Languages"	"French"	100	105
+"Languages"	"German"	75	107
+"Languages"	"Dutch"	75	108
+"Languages"	"Latin"	50	108
+"Languages"	"Russian"	50	108
+"Languages"	"Japanese"	25	109

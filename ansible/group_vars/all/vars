@@ -1,0 +1,36 @@
+---
+db_root_name: root
+db_root_pass: "{{ vault_db_pass }}"
+
+
+sites:
+  100-joeredinger-www:
+    domain: www.joeredinger.com
+    frontend: 80
+    backend: 81
+    github: 'longislandjoe/test.git'
+    gitversion: 'master'
+  200-joeredinger-resume:
+    domain: resume.joeredinger.com
+    frontend: 80
+    backend: 81
+    github: 'longislandjoe/resume.git'
+    gitversion: 'master'
+  400-joeredinger-pizza:
+    domain: pizza.joeredinger.com
+    frontend: 80
+    backend: 81
+    github: 'longislandjoe/test.git'
+    gitversion: 'master'
+  300-precisiontileworx-www:
+    domain: www.precisiontileworx.com
+    frontend: 80
+    backend: 81
+    github: 'longislandjoe/ptw.git'
+    gitversion: 'master'
+  500-precisiontileworx-dev:
+    domain: dev.precisiontileworx.com
+    frontend: 80
+    backend: 81
+    github: 'longislandjoe/ptw.git'
+    gitversion: 'dev'

@@ -1,0 +1,6 @@
+---
+  - hosts: loadbalancer
+    become: true
+    tasks:
+      - name: remove nginx
+        apt: name=nginx state=absent purge=yes update_cache=yes

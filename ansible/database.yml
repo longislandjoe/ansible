@@ -1,0 +1,6 @@
+---
+- hosts: database
+  become: true
+  roles:
+    - mysql
+#    - {role: mysql, db_name: resume, db_user_name: resume, db_user_pass: xxxxxxxx }

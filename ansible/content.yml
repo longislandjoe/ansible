@@ -1,0 +1,21 @@
+---
+- hosts: webserver
+  gather_facts: false
+  tasks:
+  
+  - name: remove directory
+    file: path=/var/www/html/{{ item.key }}  state=absent
+
+    with_dict: "{{ sites  }}"
+
+  - name: create directory
+    file: path=/var/www/html/{{ item.key }} state=directory
+    with_dict: "{{ sites }}"
+
+  - name: pull repo
+    git:
+      repo: https://github.com/{{ item.value.github }}
+      dest: /var/www/html/{{ item.key }}
+      version: "{{ item.value.gitversion }}"
+      #  version: master
+    with_dict: "{{ sites }}"

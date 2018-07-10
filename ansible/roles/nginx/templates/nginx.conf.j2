@@ -1,0 +1,14 @@
+upstream {{item.key}} {
+{% for server in groups.loadbalancer %}
+  server {{ server }}:{{ item.value.backend }};
+{% endfor %}
+}
+
+server {
+  listen {{ item.value.frontend}};
+  server_name {{ item.value.domain }};
+  proxy_set_header Host $http_host;
+  location / {
+    proxy_pass http://{{ item.key }};
+  }
+}

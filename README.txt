@@ -1,0 +1,1 @@
+Place id_rsa files and .vault_pass.txt in the same directory as the Vagrantfile before provisioning.

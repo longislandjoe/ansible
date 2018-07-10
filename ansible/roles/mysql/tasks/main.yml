@@ -1,0 +1,31 @@
+---
+- name: install tools
+  apt: name={{item}} state=present
+  with_items:
+    - python-mysqldb
+  tags: ['packages']
+
+- name:  install mysql
+  apt: name=mysql-server state=present
+
+- name: install mysql password file
+  template: src=pw.cnf.j2 dest=/home/www-data/pw.cnf mode=0755
+
+- name:  ensure mysql listening on all ports
+  lineinfile: path=/etc/mysql/my.cnf regexp=^bind-address line="bind-address = 0.0.0.0"
+#  lineinfile: path=/etc/mysql/my.cnf regexp=^bind-address line="bind-address = {{ ansible_wlan0.ipv4.address }}"
+  notify: restart mysql
+
+- name:  ensure mysql started
+  service: name=mysql state=started enabled=yes
+
+- name: copy skills 
+  #  mysql_db: name={{ resume_db_name }} login_user={{ root_db_user }} login_password={{ root_db_password }} state=present
+  copy: src=resume.sql dest=/var/lib/mysql-files/resume.sql
+
+
+- name: create resume database
+  mysql_db: name={{ resume_db_name }} login_user={{ root_db_user }} login_password={{ root_db_password }} state=import target=/var/lib/mysql-files/resume.sql
+
+- name: create resume db user
+  mysql_user: name={{ resume_db_user }} password={{ resume_db_password }} priv={{ resume_db_name }}.*:ALL host='%' state=present login_user="root" login_password={{ root_db_password }} 

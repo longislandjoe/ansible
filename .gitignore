@@ -1,0 +1,5 @@
+id_rsa*
+.vagrant/
+*.log
+.vault_pass.txt
+
